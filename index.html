@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <title>Vivid Live</title>
+  <body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+    <div>
+      <p>내수용 베트남 커피</p>
+      <div id="player"></div>
+      <ul>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+        <li>안녕하세요</li>
+        <li>물건 문의드립니다.</li>
+        <li>사고 싶어요</li>
+        <li>방송 재미있어요</li>
+        <li>저거 얼마인가요?</li>
+      </ul>
+    </div>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement("script");
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          // height: "360",
+          // width: "640",
+          videoId: "2Y4fDXw0szE",
+          events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+          },
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
+  </body>
+</html>
+<style>
+  p {
+    margin-bottom: 2rem;
+    font: 1.5rem bolder;
+  }
+</style>
