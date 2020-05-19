@@ -60,6 +60,28 @@
       </ul>
     </div>
 
+    <input type="button" onclick="plusFun();" value="댓글 추가" />
+
+    <script type="text/javascript">
+      // "추가" 버튼 클릭시 실행 되는 함수 입니다.
+      function plusFun() {
+        //plusUl 변수에 createElement 를 사용해 생성할 엘리먼트를 담습니다.
+        var plusUl = document.querySelector("ul");
+        // 추가할 plusUl 엘리먼트 안의 내용을 정해줍니다. ( 꼭 정해야 하는건 아닙니다. )
+        //let tmpContent = plusUl;
+
+        var currentDate = new Date();
+        var msg = "댓글 시간:" + currentDate.getHours() + "시";
+        msg += currentDate.getMinutes() + "분";
+        msg += currentDate.getSeconds() + "초";
+        console.log(msg);
+
+        plusUl.innerHTML += msg + "<li>댓글추가합니다.</li>";
+        // appendChild 로 이전에 정의한 plusUl 변수의 내용을 실제 추가합니다.
+        document.getElementById("a").appendChild(plusUl);
+      }
+    </script>
+
     <script>
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement("script");
@@ -108,5 +130,12 @@
   p {
     margin-bottom: 2rem;
     font: 1.5rem bolder;
+  }
+  input {
+    width: 5rem;
+    margin-left: 5rem;
+    margin-bottom: 5rem;
+    color: white;
+    background-color: royalblue;
   }
 </style>
